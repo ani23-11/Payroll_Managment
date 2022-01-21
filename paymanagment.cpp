@@ -4,6 +4,13 @@
 #include<fstream>
 #include<string.h>
 using namespace std;
+
+void companyname()
+{
+    system("CLS");
+    cout<<"\n\t\t\t\t\t\t\tDunder Mifflin Paper Company\n\t\t\t\t\t\t\t  PAYROLL of December 2021\n\n\n";
+
+}
 class Employee
  {
   public:
@@ -13,7 +20,9 @@ class Employee
         fstream mf;
 
     void E_details(int j)
-        { cout<<endl;
+        { 
+            companyname();
+            cout<<endl;
         string ddt[60]; 
 	    fstream mf; 
 	    mf.open("codedata.csv", ios::in);
@@ -38,7 +47,7 @@ class Employee
 	void P_details(string Name)
 	   {
 	   float x, y, z,m=0;
-	   
+	   companyname();
 	   cout<<"Pay Per Day -> Rs."<<payperday<<endl;
 	   cout<<"Days Of Working -> "<<workday<<endl;
 	      x=payperday*workday;
@@ -56,9 +65,9 @@ class Employee
 	   cout<<"Un Informed Leave Deduction -> Rs."<<z<<endl;
        cout<<"Bonus -> Rs."<<bonus<<endl;
 	   cout<<"Net Deductions -> Rs."<<(x*0.02)+(x*0.015)+y+z<<endl;
-	   cout<<"Net Payment -> Rs."<<x-((x*0.02)+(x*0.015)+y+z)+bonus<<"\n\n\n\n";
+	   cout<<"Net Payment -> Rs."<<x-((x*0.02)+(x*0.015)+y+z)+bonus<<"\n\n";
 
-       cout<<"Do you want to print details to a file?(1=Yes & 0=No)";
+       cout<<"Do you want to print details to a file?\n\t(1) Yes \n\t(0) No\n : ";
         cin>>m;
             if(m==1)
                 {
@@ -101,7 +110,9 @@ class Employee
 { public:
 
 void E_details()
-	  { string Name, Desg, id;
+	  { 
+          companyname();
+          string Name, Desg, id;
         cout<<endl<<endl;
 	    cin.ignore();
 	    cout<<"Enter Name : ";
@@ -123,14 +134,16 @@ void E_details()
 main()
  {
  int i,j,k;
-
- cout<<"\n\t\t\t\t\t\t\t\t\t\tDunder Mifflin Paper Company\n\t\t\t\t\t\t\t\t\t\t  PAYROLL of December 2021\n\n\n";
+    companyname();
  cout<<"Enter The Number Of Emplyoees : ";
  cin>>j;
+ 
  Employee Ei;
  emp ei;
- cout<<endl<<"If you want to use data from file enter 1\nIf you want to eneter a new Employee data enter 0"<<endl;
+ companyname();
+ cout<<endl<<"(1) If you want to use data from file\n(0) If you want to enter a new Employee data\n: ";
  cin>>k;
+ companyname();
  if(k==1)
     Ei.E_details(j);
 
