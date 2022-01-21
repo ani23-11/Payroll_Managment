@@ -38,16 +38,17 @@ class Employee
         getline(mf,ddt[y+2],',');
 	            cout<<"ID Number -> "<<ddt[y+2]<<endl;
         
-        P_details(ddt[y]);       
+        P_details(ddt[y],ddt[y+1],ddt[y+2]);       
 		y++;
 	    } 
         mf.close();
         }   
 	  
-	void P_details(string Name)
+	void P_details(string Name, string desg, string id)
 	   {
 	   float x, y, z,m=0;
 	   companyname();
+       cout<<"Employee : "<<Name<<"\nDesignation : "<<desg<<"\nID : "<<id<<endl;
 	   cout<<"Pay Per Day -> Rs."<<payperday<<endl;
 	   cout<<"Days Of Working -> "<<workday<<endl;
 	      x=payperday*workday;
@@ -86,8 +87,10 @@ class Employee
                     myfile << "---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n";
                     myfile.close();
                 }
-            else
+            else if(m==0)
                 m=1;
+            else
+                cout<<"Error!";
 	   }
 
     void getdata()
@@ -122,10 +125,7 @@ void E_details()
 	    cout<<"Enter Employee's ID Number : ";
 	     getline(cin,id);
 	    getdata();
-        cout<<"Name -> "<<Name<<endl;
-	   cout<<"Designation -> "<<Desg<<endl;
-	   cout<<"ID Number -> "<<id<<endl;
-        P_details(Name);
+        P_details(Name,Desg,id);
 	  }
 
 };
